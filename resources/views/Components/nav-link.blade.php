@@ -6,4 +6,3 @@
 
 
 
-<?php if ($type)
