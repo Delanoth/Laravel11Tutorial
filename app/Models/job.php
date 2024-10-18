@@ -3,37 +3,13 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Arr;
 
-class job {
-    public static function all(): array
-    {
-        return [
-            [
-                'id' => 1,
-                'title' => 'Director',
-                'salary' => '49.050'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Programmer',
-                'salary' => '10.000'
-            ],
-            [
-                'id' => 3,
-                'title' => 'Teacher',
-                'salary' => '40.000'
-            ]
-            ];
-    }
+use Illuminate\Database\Eloquent\Model;
 
-    public static function find(int $id): array
-    {
-        $job = Arr::first(static::all(), fn($job) => $job['id'] == $id);
 
-        if (! $job) 
-        {
-            abort(404);  
-        }
-    }
+
+class job extends Model {
+    protected $table = 'job_listings';
+
+    protected $fillable = ['title', 'salary'];
 }
